@@ -18,3 +18,8 @@ fi
 3. Create the following symlinks
 ln -s /cygdrive/d/CygwinLogs CygwinLogs
 
+4. Add .logrc with following parameters
+LOGDIR="/cygdrive/d/CygwinLogs/"
+TIMDIR="$LOGDIR""Terminal/"
+LOGFILE="Session-$(date +%Y%m%d-%H%M%S-%N)"
+
