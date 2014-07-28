@@ -1,0 +1,29 @@
+#!/bin/bash
+
+if [ -f "${HOME}/.logrc" ] ; then
+ source "${HOME}/.logrc"
+#
+# Check if user passed a speedup factor
+#
+  if [[ $2 ]] ; then
+   echo
+   echo "********** Starting playsession for $1 at $2X Speed **********"
+   echo
+   /usr/bin/scriptreplay --timing="$TIMDIR""$1.tm" "$LOGDIR""$1.log" "$2"
+   echo
+   echo "********** Finished playsession for $1 at $2X Speed **********"
+   echo
+#
+# No speedup factor
+#
+  else
+   echo
+   echo "********** Starting playsession for $1 **********"
+   echo
+   /usr/bin/scriptreplay --timing="$TIMDIR""$1.tm" "$LOGDIR""$1.log"
+   echo
+   echo "********** Finished playsession for $1 **********"
+   echo
+  fi
+fi
+

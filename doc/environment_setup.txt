@@ -1,0 +1,20 @@
+This documents describes the setup of my CygWin environement.
+Before proceding you should create a Git clone of this repository.
+Create a GitHub directory in your home directory and create the clone in the GitHub directory.
+
+1. Add following code to .bashrc file:
+if [ -f "${HOME}/bin/logsession" ] ; then
+  source "${HOME}/bin/logsession"
+fi
+if [ -f "${HOME}/bin/my_aliases" ] ; then
+  source "${HOME}/bin/my_aliases"
+fi
+
+2. Create the following directories
+/${HOME}/bin
+/cygdrive/d/CygwinLogs
+/cygdrive/d/CygwinLogs/Terminal
+
+3. Create the following symlinks
+ln -s /cygdrive/d/CygwinLogs CygwinLogs
+

@@ -1,0 +1,18 @@
+#!/bin/bash
+#File to initiate the session logging to a log file
+
+if [ -f "${HOME}/.logrc" ] ; then
+ source "${HOME}/.logrc"
+#
+# Check if user initiated request for session logging and start the logging file
+#
+  if [ $0 == "${HOME}/bin/logsession" ] ; then
+   /usr/bin/script -f --timing="$TIMDIR""$LOGFILE.tm" "$LOGDIR""$LOGFILE.log"
+#
+# Session logging not initiated by user (i.e. initiated by .bashrc)
+# Check if this is topmost SHELL (to avoid recursive loop) and start logging file
+#
+  elif [ $SHLVL == 1 ] ; then
+   /usr/bin/script -f --timing="$TIMDIR""$LOGFILE.tm" "$LOGDIR""$LOGFILE.log"
+  fi
+fi
