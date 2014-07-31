@@ -9,6 +9,8 @@ fi
 if [ -f "${HOME}/bin/my_aliases" ] ; then
   source "${HOME}/bin/my_aliases"
 fi
+# ssh-pageant
+eval $(/usr/bin/ssh-pageant -ra /tmp/.ssh-pageant)
 
 2. Create the following directories
 /${HOME}/bin
