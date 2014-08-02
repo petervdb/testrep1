@@ -1,7 +1,7 @@
 This documents describes the setup of my CygWin environement.
 Before proceding you should create a Git clone of this repository.
 Create a GitHub directory "GitHub" in your home directory and create the clone in the GitHub directory.
-
+---------------------------------------------------------------------------------------------------------
 1. Add following code to .bashrc file:
 if [ -f "${HOME}/bin/logsession" ] ; then
   source "${HOME}/bin/logsession"
@@ -11,24 +11,33 @@ if [ -f "${HOME}/bin/my_aliases" ] ; then
 fi
 # ssh-pageant
 eval $(/usr/bin/ssh-pageant -ra /tmp/.ssh-pageant)
+---------------------------------------------------------------------------------------------------------
 
 2. Create the following directories
 /${HOME}/bin
 /cygdrive/d/CygwinLogs
 /cygdrive/d/CygwinLogs/Terminal
+---------------------------------------------------------------------------------------------------------
 
 3. Create the following symlinks
 ln -s /cygdrive/d/CygwinLogs CygwinLogs
+---------------------------------------------------------------------------------------------------------
 
 4. Add .logrc with following parameters
 LOGDIR="/cygdrive/d/CygwinLogs/"
 TIMDIR="$LOGDIR""Terminal/"
 LOGFILE="Session-$(date +%Y%m%d-%H%M%S-%N)"
+---------------------------------------------------------------------------------------------------------
 
 5. Create .my.cnf in your home directory if you will use the scripts that connect to the MySQL database server.
 .my.cnf should at least contain the following information:
 [mysql]
 user=my_username
 password=my_password
+---------------------------------------------------------------------------------------------------------
 
-
+6. Check that you have a bin directory in your home directory.
+Execute rsync_bin.sh to keep the bin directory in your home directory synchronized with the bin folder in the repository.
+Sub-directories in the bin directory will no be synchronized. 
+---------------------------------------------------------------------------------------------------------
+ 
