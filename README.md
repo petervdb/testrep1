@@ -1,11 +1,16 @@
-testrep1
+Testrep1
 ========
 
 My first selfmade GIT test repository.
 You will not find much in this repository. This is my first GitHub repository.
 I created it to get some experience with GIT and how to manage some scripts on Linux and Windows systems.
-The scripts found in the repository are mainly used in combination with CygWin. These scripts should also be working on Linux systems as well. There is a small tutorial in de doc folder that explains what environment settings that need to be changed.
+The scripts found in the repository are mainly used in combination with CygWin. 
+These scripts should also be working on Linux systems as well. 
+There is a small tutorial in de doc folder that explains what environment settings that need to be changed.
 
-2013-02-20 Modified readme file. Added test script for both Windows and Linux workstation.
-2014-07-24 Created clone from within CygWin for testing.
-2014-07-25 Started using this reposity to keep my Cygwin test environmens, mainly scripts, in sync. 
+History
+=======
+* 2013-02-20 Modified readme file. Added test script for both Windows and Linux workstation.
+* 2014-07-24 Created clone from within CygWin for testing.
+* 2014-07-25 Started using this reposity to keep my Cygwin test environmens, mainly scripts, in sync. 
+
