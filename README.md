@@ -1,12 +1,15 @@
 Testrep1
 ========
 
+General information
+========
 My first selfmade GIT test repository.
-You will not find much in this repository. This is my first GitHub repository.
+This is my first GitHub repository.
 I created it to get some experience with GIT and how to manage some scripts on Linux and Windows systems.
 The scripts found in the repository are mainly used in combination with CygWin. 
 These scripts should also be working on Linux systems as well. 
 There is a small tutorial in de doc folder that explains what environment settings that need to be changed.
+Some experience with Linux before getting started with this repository would be nice.
 
 History
 =======
