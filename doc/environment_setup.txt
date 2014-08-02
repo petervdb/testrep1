@@ -1,6 +1,6 @@
 This documents describes the setup of my CygWin environement.
 Before proceding you should create a Git clone of this repository.
-Create a GitHub directory in your home directory and create the clone in the GitHub directory.
+Create a GitHub directory "GitHub" in your home directory and create the clone in the GitHub directory.
 
 1. Add following code to .bashrc file:
 if [ -f "${HOME}/bin/logsession" ] ; then
@@ -24,4 +24,11 @@ ln -s /cygdrive/d/CygwinLogs CygwinLogs
 LOGDIR="/cygdrive/d/CygwinLogs/"
 TIMDIR="$LOGDIR""Terminal/"
 LOGFILE="Session-$(date +%Y%m%d-%H%M%S-%N)"
+
+5. Create .my.cnf in your home directory if you will use the scripts that connect to the MySQL database server.
+.my.cnf should at least contain the following information:
+[mysql]
+user=my_username
+password=my_password
+
 
