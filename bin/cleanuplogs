@@ -1,14 +1,25 @@
 #!/bin/bash
 #File to initiate the session logging to a log file
+# Required that .logrc file is available in your home directory
 
-echo "Performing cleanup Cygwin terminal session logs from script."
-echo "Removing all log files older than 10 days."
-
-if [ -f "${HOME}/.logrc" ] ; then
-  source "${HOME}/.logrc"
-#
-# Perform cleanup session and terminal log files older than 60 days
-#
-   find $TIMDIR -name "*.tm" -mtime +60 -exec rm {} \;
-   find $LOGDIR -name "*.log" -mtime +60 -exec rm {} \;
+myscript=`basename $0`
+if (( $# < 1 ))
+then
+  printf "%b" "Error. Not enough arguments.\n" >&2
+  printf "%b" "usage: $myscript days\n" >&2
+  exit 1
+else
+  echo "Performing cleanup Cygwin terminal session logs from script."
+  echo "Removing all log files older than $1 days."
+  if [ -f "${HOME}/.logrc" ] ; then
+    source "${HOME}/.logrc"
+    #
+    # Perform cleanup session and terminal log files older than 60 days
+    #
+    find $TIMDIR -name "*.tm" -mtime +$1 -exec rm {} \;
+    find $LOGDIR -name "*.log" -mtime +$1 -exec rm {} \;
 fi
+
+fi
+
+
