@@ -1,4 +1,4 @@
-This documents describes the setup of my CygWin environement.
+This documents describes the setup of my CygWin and Linux environement.
 Before proceding you should create a Git clone of this repository.
 Create a GitHub directory "GitHub" in your home directory and create the clone in the GitHub directory.
 ---------------------------------------------------------------------------------------------------------
@@ -10,21 +10,33 @@ if [ -f "${HOME}/bin/my_aliases" ] ; then
   source "${HOME}/bin/my_aliases"
 fi
 # ssh-pageant
+# Only required for Cygwin. Just leave it out when running on Linux
 eval $(/usr/bin/ssh-pageant -ra /tmp/.ssh-pageant)
 ---------------------------------------------------------------------------------------------------------
 
-2. Create the following directories
+2. Create the following directories when on Cygwin
 /${HOME}/bin
 /cygdrive/d/CygwinLogs
 /cygdrive/d/CygwinLogs/Terminal
+
+Create the following directories when on Linux
+/${HOME}/bin
+/${HOME}/TerminalLogs
+/${HOME}/TerminalLog/Terminal
 ---------------------------------------------------------------------------------------------------------
 
-3. Create the following symlinks
+3. Create the following symlinks when running on Cygwin
 ln -s /cygdrive/d/CygwinLogs CygwinLogs
 ---------------------------------------------------------------------------------------------------------
 
 4. Add .logrc with following parameters
+For Cygwin:
 LOGDIR="/cygdrive/d/CygwinLogs/"
+TIMDIR="$LOGDIR""Terminal/"
+LOGFILE="Session-$(date +%Y%m%d-%H%M%S-%N)"
+
+For Linux:
+LOGDIR="${HOME}/TerminalLogs"
 TIMDIR="$LOGDIR""Terminal/"
 LOGFILE="Session-$(date +%Y%m%d-%H%M%S-%N)"
 ---------------------------------------------------------------------------------------------------------
