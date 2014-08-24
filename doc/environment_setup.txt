@@ -2,7 +2,8 @@ This documents describes the setup of my CygWin and Linux environement.
 Before proceding you should create a Git clone of this repository.
 Create a GitHub directory "GitHub" in your home directory and create the clone in the GitHub directory.
 ---------------------------------------------------------------------------------------------------------
-1. Add following code to .bashrc file:
+1. Add following code to .bashrc file when using Cygwin:
+# logession causes problems during booting on Linux systems
 if [ -f "${HOME}/bin/logsession" ] ; then
   source "${HOME}/bin/logsession"
 fi
