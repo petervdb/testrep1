@@ -17,3 +17,4 @@ History
 * 2014-07-24 Created clone from within CygWin for testing.
 * 2014-07-25 Started using this reposity to keep my Cygwin test environmens, mainly scripts, in sync. 
 * 2014-08-23 Needs some minor modifications to work correctly on Linux systems.
+* 2014-08-27 Added some Perl and Python scripts
