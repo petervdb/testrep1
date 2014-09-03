@@ -2,3 +2,5 @@ alias h='history'
 alias psg='ps auxw | grep'
 alias cdtestrep1='cd $HOME/GitHub/testrep1'
 alias l='ls -la'
+# specific Linux stuff
+alias fuck='sudo $(history -p \!\!)'
