@@ -6,5 +6,13 @@ alias l='ls -la'
 alias fuck='sudo $(history -p \!\!)'
 alias learnpython='cd $HOME/GitHub/testrep1/elearning/python'
 alias learnmongodb='cd $HOME/GitHub/testrep1/elearning/mongodb'
+
+# Some aliases to start and stop services
 alias startmongodb='sudo systemctl start mongodb.service'
 alias stopmongodb='sudo systemctl stop mongodb.service'
+alias startmysql='sudo systemctl start mysql.service'
+alias stopmysql='sudo systemctl stop mysql.service'
+alias startnginx='sudo systemctl start nginx.service'
+alias stopnginx='sudo systemctl stop nginx.service'
+alias startapache2='sudo systemctl start apache2.service'
+alias stopapache2='sudo systemctl stop apache2.service'
