@@ -1,0 +1,13 @@
+Add Test data:
+> for (i=0; i<1000; i++) { names=["exam", "essay", "quiz"]; for (j=0;j<3;j++) {db.scores.insert( { "student" : i, "type" : names[j], score : Math.round(Math.random()*100) } ); } }
+
+db.scores.find( { $or : [ {"score" : { $lt : 50 }}, {"score" : { $gt : 90 }} ] } );
+db.users.find( { "name" : { $regex : "q" }, "email" : { $exists : true } } );
+db.scores.find({ "type" : "essay", "score" : 50} , { "_id" : false, "student" : true});
+db.users.find( { friends : { $all : [ "Joe" , "Bob" ] }, favorites : { $in : [ "running" , "pickles" ] } };
+db.catalog.find( { price : { $gt : 10000 } , "reviews.rating" : { $gte : 5 } } );
+db.scores.find({type : "exam"}).sort({ score : -1 }).skip(50).limit(20);
+db.scores.count( { type : "essay", score : { $gt : 90 } } );
+db.people.update( { name: "Alice" }, {$set : { age : 31} } );
+db.people.update( { name: "Alice" }, {$unset : { age : 1} } );
+
