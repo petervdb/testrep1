@@ -45,7 +45,7 @@ connecting to: test
 > db.arrays.find();
 { "_id" : 0, "a" : [  2,  5 ] }
 
-# Add multiple elements to the array
+# Add multiple elements to the array, can generate duplicates
 > db.arrays.update( { _id : 0 }, { $pushAll : { a : [7, 8, 9 ] } } )
 > db.arrays.find();
 { "_id" : 0, "a" : [  2,  5,  7,  8,  9 ] }
@@ -60,7 +60,7 @@ connecting to: test
 > db.arrays.find();
 { "_id" : 0, "a" : [  7,  9 ] }
 
-# Add elements
+# Add elements and prevents generating duplicates
 > db.arrays.update( { _id : 0 }, { $addToSet : { a : 5 } } );
 > db.arrays.find();
 { "_id" : 0, "a" : [  7,  9,  5 ] }
