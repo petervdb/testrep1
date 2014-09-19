@@ -1,3 +1,6 @@
+This commands are taken from the MongoDB university training course for developers
+----------------------------------------------------------------------------------
+
 Add Test data:
 > for (i=0; i<1000; i++) { names=["exam", "essay", "quiz"]; for (j=0;j<3;j++) {db.scores.insert( { "student" : i, "type" : names[j], score : Math.round(Math.random()*100) } ); } }
 
@@ -67,4 +70,17 @@ connecting to: test
 > db.arrays.update( { _id : 0 }, { $addToSet : { a : 5 } } );
 > db.arrays.find();
 { "_id" : 0, "a" : [  7,  9,  5 ] }
+
+# Update a record and if it does not exists, insert it
+db.foo.update( { username : 'bar' }, { '$set' : { 'interests': [ 'cat' , 'dog' ] } } , { upsert : true } );
+
+# Update multiple documents at the  same
+db.people.update( { } , { $set : {title : "Dr" } } , {multi : true } )
+db.scores.update( { score : { $lt : 70 } } , { $inc : { score : 20 } }, {multi : true} );
+
+# remove documents
+db.people.remove( { } )
+db.people.drop()
+db.people.remove( { name : "Alice" } )
+
 
