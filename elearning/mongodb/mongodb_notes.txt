@@ -11,3 +11,60 @@ db.scores.count( { type : "essay", score : { $gt : 90 } } );
 db.people.update( { name: "Alice" }, {$set : { age : 31} } );
 db.people.update( { name: "Alice" }, {$unset : { age : 1} } );
 
+Manipulating arrays:
+-------------------------------------------------------------------
+petervdb@uxplcomp726:~> mongo
+MongoDB shell version: 2.4.10
+connecting to: test
+> db.arrays.insert( {_id : 0, a : [1, 2, 3, 4 ] } );
+> db.arrays.find();
+{ "_id" : 0, "a" : [  1,  2,  3,  4 ] }
+
+# Update value within an array
+> db.arrays.update( { _id : 0 }, { $set : { "a.2" : 5 } } )
+> db.arrays.find();
+{ "_id" : 0, "a" : [  1,  2,  5,  4 ] }
+
+# Add element from the array
+> db.arrays.update( { _id : 0 }, { $push : { a : 6 } } )
+> db.arrays.find();
+{ "_id" : 0, "a" : [  1,  2,  5,  4,  6 ] }
+
+# Remove element from the array
+> db.arrays.update( { _id : 0 }, { $pop : { a : 6 } } )
+> db.arrays.find();
+{ "_id" : 0, "a" : [  1,  2,  5,  4 ] }
+
+# Remove left element of the array
+> db.arrays.update( { _id : 0 }, { $pop : { a : -1 } } )
+> db.arrays.find();
+{ "_id" : 0, "a" : [  2,  5,  4 ] }
+
+# Remove the right element of the array
+> db.arrays.update( { _id : 0 }, { $pop : { a : 1 } } )
+> db.arrays.find();
+{ "_id" : 0, "a" : [  2,  5 ] }
+
+# Add multiple elements to the array
+> db.arrays.update( { _id : 0 }, { $pushAll : { a : [7, 8, 9 ] } } )
+> db.arrays.find();
+{ "_id" : 0, "a" : [  2,  5,  7,  8,  9 ] }
+
+# Remove the value of the element in the array
+> db.arrays.update( { _id : 0 }, { $pull : { a : 5 } } )
+> db.arrays.find();
+{ "_id" : 0, "a" : [  2,  7,  8,  9 ] }
+
+# Remove multiple values of elements in the array
+> db.arrays.update( { _id : 0 }, { $pullAll : { a : [2, 4, 8 ] } } )
+> db.arrays.find();
+{ "_id" : 0, "a" : [  7,  9 ] }
+
+# Add elements
+> db.arrays.update( { _id : 0 }, { $addToSet : { a : 5 } } );
+> db.arrays.find();
+{ "_id" : 0, "a" : [  7,  9,  5 ] }
+> db.arrays.update( { _id : 0 }, { $addToSet : { a : 5 } } );
+> db.arrays.find();
+{ "_id" : 0, "a" : [  7,  9,  5 ] }
+
