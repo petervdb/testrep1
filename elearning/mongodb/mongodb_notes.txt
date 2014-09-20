@@ -97,3 +97,14 @@ Homework 2.1
 
 Homework 2.2
 ----------------
+Filter by homework and sort by score
+> db.grades.find ({ type : "homework"}).sort( {student_id : 1, score : 1 })
+{ "_id" : ObjectId("50906d7fa3c412bb040eb579"), "student_id" : 0, "type" : "homework", "score" : 14.8504576811645 }
+{ "_id" : ObjectId("50906d7fa3c412bb040eb57a"), "student_id" : 0, "type" : "homework", "score" : 63.98402553675503 }
+{ "_id" : ObjectId("50906d7fa3c412bb040eb57d"), "student_id" : 1, "type" : "homework", "score" : 21.33260810416115 }
+{ "_id" : ObjectId("50906d7fa3c412bb040eb57e"), "student_id" : 1, "type" : "homework", "score" : 44.31667452616328 }
+...
+
+When student_id changes the element can be removed.
+There are 200 student, and 4 elements for each student. After processing only 600 elements should be in the collection.
+
