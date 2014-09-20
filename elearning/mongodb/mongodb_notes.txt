@@ -83,4 +83,17 @@ db.people.remove( { } )
 db.people.drop()
 db.people.remove( { name : "Alice" } )
 
+--------------------------------------------------------------------------
+Homework 2.1
+----------------
+> db.grades.find({ score : { $gte : 65 }}).sort({score : 1}).pretty()
+{
+	"_id" : ObjectId("50906d7fa3c412bb040eb5cf"),
+	"student_id" : 22,
+	"type" : "exam",
+	"score" : 65.02518811936324
+}
+...
 
+Homework 2.2
+----------------
