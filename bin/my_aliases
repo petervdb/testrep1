@@ -6,6 +6,7 @@ alias l='ls -la'
 alias fuck='sudo $(history -p \!\!)'
 alias learnpython='cd $HOME/GitHub/testrep1/elearning/python'
 alias learnmongodb='cd $HOME/GitHub/testrep1/elearning/mongodb'
+alias startsshagent='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/id_rsa'
 
 # Some aliases to start and stop services
 alias startmongodb='sudo systemctl start mongodb.service'
