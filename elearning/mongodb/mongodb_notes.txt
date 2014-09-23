@@ -108,3 +108,7 @@ Filter by homework and sort by score
 When student_id changes the element can be removed.
 There are 200 student, and 4 elements for each student. After processing only 600 elements should be in the collection.
 
+Homework 2.3
+-----------------
+
+

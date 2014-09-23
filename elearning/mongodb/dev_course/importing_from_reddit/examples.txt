@@ -1,0 +1,2 @@
+db.stories.find({'title':{$regex:'Microsoft'}}, {'title':1, _id: 0})
+
