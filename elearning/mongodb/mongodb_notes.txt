@@ -111,4 +111,10 @@ There are 200 student, and 4 elements for each student. After processing only 60
 Homework 2.3
 -----------------
 
+Homework 3.1
+-----------------
+db.students.update({'_id' : 0}),{ $pop : {scores : 2 } })
+
+A
+A
 
