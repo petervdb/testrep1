@@ -8,6 +8,10 @@ alias learnpython='cd $HOME/GitHub/testrep1/elearning/python'
 alias learnmongodb='cd $HOME/GitHub/testrep1/elearning/mongodb'
 alias startsshagent='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/id_rsa'
 
+# MySQL related
+alias mysqlprocesslist='mysql -e "show processlist"'
+alias mysqlnosleepprocesslist='mysql -e "SELECT * FROM information_schema.processlist WHERE command != \"Sleep\" ORDER BY id;"'
+
 # Some aliases to start and stop services
 alias startmongodb='sudo systemctl start mongodb.service'
 alias stopmongodb='sudo systemctl stop mongodb.service'
