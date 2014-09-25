@@ -113,8 +113,53 @@ Homework 2.3
 
 Homework 3.1
 -----------------
-db.students.update({'_id' : 0}),{ $pop : {scores : 2 } })
-
-A
-A
+> db.students.update({ "_id" : 0}, { $set : { "scores" : [ { "type" : "exam", "score" : 1.463179736705023 }, { "type" :
+"quiz", "score" : 11.78273309957772 }, { "type" : "homework", "score" : 6.676176060654615 }, { "type" : "homework", "sco
+re" : 35.8740349954354 } ] } })
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 0 })
+>
+>
+> db.students.find({ _id : 0}).pretty()
+{
+        "_id" : 0,
+        "scores" : [
+                {
+                        "type" : "exam",
+                        "score" : 1.463179736705023
+                },
+                {
+                        "type" : "quiz",
+                        "score" : 11.78273309957772
+                },
+                {
+                        "type" : "homework",
+                        "score" : 6.676176060654615
+                },
+                {
+                        "type" : "homework",
+                        "score" : 35.8740349954354
+                }
+        ]
+}
+> db.students.update({ "_id" : 0}, { $set : { "scores" : [ { "type" : "exam", "score" : 1.463179736705023 }, { "type" :
+"quiz", "score" : 11.78273309957772 }, { "type" : "homework", "score" : 35.8740349954354 } ] } })
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.find({ _id : 0}).pretty()
+{
+        "_id" : 0,
+        "scores" : [
+                {
+                        "type" : "exam",
+                        "score" : 1.463179736705023
+                },
+                {
+                        "type" : "quiz",
+                        "score" : 11.78273309957772
+                },
+                {
+                        "type" : "homework",
+                        "score" : 35.8740349954354
+                }
+        ]
+}
 
