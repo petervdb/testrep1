@@ -163,3 +163,12 @@ WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
         ]
 }
 
+Homework 3.2 and 3.3
+-----------------------
+self.posts.insert(post, safe=True)
+cursor = self.posts.find( {} )
+post = self.posts.find_one({'permalink': permalink})
+self.posts.update({'permalink': permalink}, { '$set' : { 'comments': [ comment ] } } )
+
+B
+
