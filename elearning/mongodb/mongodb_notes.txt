@@ -170,5 +170,3 @@ cursor = self.posts.find( {} )
 post = self.posts.find_one({'permalink': permalink})
 self.posts.update({'permalink': permalink}, { '$set' : { 'comments': [ comment ] } } )
 
-B
-
