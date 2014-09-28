@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?taskcoach release="1.4.1" tskversion="37"?>
+
+<tasks>
+<task actualstartdate="2014-09-28 20:32:48.051000" creationDateTime="2014-09-28 20:32:48.052000" id="d89a3740-473d-11e4-a374-e549d3e32f4c" modificationDateTime="2014-09-28 20:33:02.851000" plannedstartdate="2014-09-28 20:32:48.051000" status="1" subject="Test task 1" />
+<task actualstartdate="2014-09-28 20:33:11.619000" creationDateTime="2014-09-28 20:33:11.620000" id="e6a66840-473d-11e4-a5fc-e549d3e32f4c" modificationDateTime="2014-09-28 20:33:24.936000" plannedstartdate="2014-09-28 20:33:11.619000" status="1" subject="Test task 2" />
+<task actualstartdate="2014-09-28 20:33:27.579000" creationDateTime="2014-09-28 20:33:27.580000" id="f029b5c0-473d-11e4-bd6f-e549d3e32f4c" modificationDateTime="2014-09-28 20:33:37.466000" plannedstartdate="2014-09-28 20:33:27.579000" status="1" subject="Test task 3" />
+<syncmlconfig>
+<TaskCoach-00000148bd88a6ba614f582100c000a8000000e9>
+<spds>
+<sources>
+<TaskCoach-00000148bd88a6ba614f582100c000a8000000e9.Tasks />
+<TaskCoach-00000148bd88a6ba614f582100c000a8000000e9.Notes />
+</sources>
+<syncml>
+<Auth />
+<Conn />
+</syncml>
+</spds>
+</TaskCoach-00000148bd88a6ba614f582100c000a8000000e9>
+</syncmlconfig>
+<guid>
+00000148bd88a6ba614f582100c000a8000000e9
+</guid>
+</tasks>
