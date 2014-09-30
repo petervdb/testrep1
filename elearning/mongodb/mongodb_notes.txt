@@ -170,3 +170,107 @@ cursor = self.posts.find( {} )
 post = self.posts.find_one({'permalink': permalink})
 self.posts.update({'permalink': permalink}, { '$set' : { 'comments': [ comment ] } } )
 
+Indexes
+-----------------------
+Create index ascending
+db.students.ensureIndex({student_id:1})
+Index class descending
+db.students.ensureIndex({student_id:1,class: -1})
+Create index on class and student_name
+db.students.ensureIndex({class:1, student_name:1})
+Find out indexes that have been created:
+db.system.indexes.find()
+> db.system.indexes.find()
+{ "v" : 1, "key" : { "_id" : 1 }, "name" : "_id_", "ns" : "school.students" }
+> db.students.getIndexes()
+[
+        {
+                "v" : 1,
+                "key" : {
+                        "_id" : 1
+                },
+                "name" : "_id_",
+                "ns" : "school.students"
+        }
+]
+MultiKey indexes
+-----------------------
+MultiKey index is not possible when both field are array.
+db.foo.ensureIndex({a:1, b:1})
+Not possible: db.foo.insert({a:[1,2,3], b:[5,6,7]})
+
+db.people.ensureIndex({'addresses.tag':1})
+
+Create unique index
+db.stuff.ensureIndex( { thing : 1}, {unique : true })
+db.students.ensureIndex({student_id: 1, class_id: 1}, {unique: true})
+Danger zone:
+db.things.ensureIndex ( { thing : 1}, {unique : true , dropDups : true } )
+
+Sparse index: different behaviour between 2.4 and 2.6
+db.products.ensureIndex({size : 1}, {unique: true, sparse: true})
+
+Index size
+-----------------------
+> db.students.stats()
+{
+        "ns" : "school.students",
+        "count" : 200,
+        "size" : 48000,
+        "avgObjSize" : 240,
+        "numExtents" : 3,
+        "storageSize" : 172032,
+        "nindexes" : 1,
+        "lastExtentSize" : 131072,
+        "paddingFactor" : 1,
+        "userFlags" : 1,
+        "totalIndexSize" : 8176,
+        "indexSizes" : {
+                "_id_" : 8176
+        },
+        "ok" : 1
+}
+> db.students.totalIndexSize()
+8176
+
+This is about 8k bytes of memory used.
+If possible, all indexes should be stored in memory for best performance.
+
+2D location index
+-----------------------
+db.stores.ensureIndex({location:'2d', type: 1})
+db.stores.find({location:{$near:[50,50]}})
+db.places.find( { location : { $near : [74,140] } } ).limit(3)
+
+2D sphere location index
+-----------------------
+db.stores.ensureIndex({location:'2dsphere'})
+db.places.find({ location: { $near : { $geometry: { type: "Point", coordinates : [-122, 37]}, $maxDistance: 2000 } } })
+db.stores.find( { loc: { $near : { $geometry : { type : "Point", coordinates : [-130, 39]}, $maxDistance : 1000000 } } } )
+
+Text searches
+-----------------------
+db.sentences.ensureIndex({ 'words' : 'text' })
+db.sentences.find({{$text : { $search: 'dog'}})
+db.sentences.find({$text:{$search:'dog tree obsidian'}}, {score:{$meta: 'textScore'}}).sort({score:{$meta:'textScore'}})
+
+Slow query logging
+-----------------------
+By default all queries > 100ms are logged in de log file
+
+Profiler
+-----------------------
+0 off
+1 slow querues
+2 all queries
+
+db.system.profile.find({ns:/test.foo/}).sort({ts:1}).pretty()
+db.system.profile.find({ns:/school.students/}).sort({ts:1}).pretty()
+db.getProfilingLevel()
+db.getProfilingStatus()
+db.setProfilingStatus(1,4) # Level 1, 4 ms 
+db.setProfilingLevel(0) # Level 1, 4 ms 
+db.system.profile.find({millis:{$gt:1000}}).sort({ts:-1}) # all queries > 1000 ms
+
+
+
