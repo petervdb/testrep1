@@ -10,6 +10,8 @@ alias taskcoach-utils='cd $HOME/GitHub/taskcoach-utils'
 alias multi-mysql-sync='cd $HOME/GitHub/multi-mysql-sync'
 alias python-fitbit='cd $HOME/GitHub/python-fitbit'
 alias startsshagent='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/id_rsa'
+alias pullrepo='git pull origin master'
+alias pushrepo='git push origin master'
 
 # MySQL related
 alias mysqlprocesslist='mysql -e "show processlist"'
