@@ -1,0 +1,252 @@
+> use test
+> db.products.insert({ brand : "GE" , price : 1000 , category : "hardware" , sku : "unknown" , description : "new hardware", reviews : { author : "Peter" , status : "active" } } )
+WriteResult({ "nInserted" : 1 })
+> db.products.insert({ brand : "GA" , price : 10 , category : "experienced" , sku : "thebest" , description : "yes she is the best", reviews : { author : "Dorine" , status : "active" } } )
+WriteResult({ "nInserted" : 1 })
+> db.products.find()
+{ "_id" : ObjectId("542beb87f9af83abfacbc107"), "brand" : "GE", "price" : 1000, "category" : "hardware", "sku" : "unknown", "description" : "new hardware", "reviews" : { "author" : "Peter", "status" : "active" } }
+{ "_id" : ObjectId("542bebeaf9af83abfacbc108"), "brand" : "GA", "price" : 10, "category" : "experienced", "sku" : "thebe
+st", "description" : "yes she is the best", "reviews" : { "author" : "Dorine", "status" : "active" } }
+>
+
+> db.system.indexes.find()
+{ "v" : 1, "key" : { "_id" : 1 }, "name" : "_id_", "ns" : "test.counters" }
+{ "v" : 1, "key" : { "_id" : 1 }, "name" : "_id_", "ns" : "test.products" }
+> db.products.getIndexes()
+[
+        {
+                "v" : 1,
+                "key" : {
+                        "_id" : 1
+                },
+                "name" : "_id_",
+                "ns" : "test.products"
+        }
+]
+
+> use store
+switched to db store
+> db.products.insert({ brand : "GE" , price : 1000 , category : "hardware" , sku : "unknown" , description : "new hardware", reviews : { author : "Peter" , status : "active" } } )
+WriteResult({ "nInserted" : 1 })
+> db.products.insert({ brand : "GA" , price : 10 , category : "experienced" , sku : "thebest" , description : "yes she is the best", reviews : { author : "Dorine" , status : "active" } } )
+WriteResult({ "nInserted" : 1 })
+>
+> db.products.find()
+{ "_id" : ObjectId("542bfed1f9af83abfacbc109"), "brand" : "GE", "price" : 1000, "category" : "hardware", "sku" : "unknown", "description" : "new hardware", "reviews" : { "author" : "Peter", "status" : "active" } }
+{ "_id" : ObjectId("542bfed8f9af83abfacbc10a"), "brand" : "GA", "price" : 10, "category" : "experienced", "sku" : "thebest", "description" : "yes she is the best", "reviews" : { "author" : "Dorine", "status" : "active" } }
+> db.system.indexes.find()
+{ "v" : 1, "key" : { "_id" : 1 }, "name" : "_id_", "ns" : "store.products" }
+> db.products.getIndexes()
+[
+        {
+                "v" : 1,
+                "key" : {
+                        "_id" : 1
+                },
+                "name" : "_id_",
+                "ns" : "store.products"
+        }
+]
+
+> db.products.ensureIndex( { sku : 1 }, {unique : true} )
+{
+        "createdCollectionAutomatically" : false,
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 2,
+        "ok" : 1
+}
+
+> db.products.getIndexes()
+[
+        {
+                "v" : 1,
+                "key" : {
+                        "_id" : 1
+                },
+                "name" : "_id_",
+                "ns" : "store.products"
+        },
+        {
+                "v" : 1,
+                "unique" : true,
+                "key" : {
+                        "sku" : 1
+                },
+                "name" : "sku_1",
+                "ns" : "store.products"
+        }
+]
+> db.products.ensureIndex( { price : -1 } )
+{
+        "createdCollectionAutomatically" : false,
+        "numIndexesBefore" : 2,
+        "numIndexesAfter" : 3,
+        "ok" : 1
+}
+> db.products.getIndexes()
+[
+        {
+                "v" : 1,
+                "key" : {
+                        "_id" : 1
+                },
+                "name" : "_id_",
+                "ns" : "store.products"
+        },
+        {
+                "v" : 1,
+                "unique" : true,
+                "key" : {
+                        "sku" : 1
+                },
+                "name" : "sku_1",
+                "ns" : "store.products"
+        },
+        {
+                "v" : 1,
+                "key" : {
+                        "price" : -1
+                },
+                "name" : "price_-1",
+                "ns" : "store.products"
+        }
+]
+
+> db.products.ensureIndex( { description : 1 } )
+{
+        "createdCollectionAutomatically" : false,
+        "numIndexesBefore" : 3,
+        "numIndexesAfter" : 4,
+        "ok" : 1
+}
+> db.products.ensureIndex( { category : 1 } )
+{
+        "createdCollectionAutomatically" : false,
+        "numIndexesBefore" : 4,
+        "numIndexesAfter" : 5,
+        "ok" : 1
+}
+
+> db.products.ensureIndex( { category : 1 , brand : 1 } )
+{
+        "createdCollectionAutomatically" : false,
+        "numIndexesBefore" : 5,
+        "numIndexesAfter" : 6,
+        "ok" : 1
+}
+> db.products.dropIndex( { category : 1 } )
+{ "nIndexesWas" : 6, "ok" : 1 }
+>
+>
+>
+>
+> db.products.getIndexes()
+[
+        {
+                "v" : 1,
+                "key" : {
+                        "_id" : 1
+                },
+                "name" : "_id_",
+                "ns" : "store.products"
+        },
+        {
+                "v" : 1,
+                "unique" : true,
+                "key" : {
+                        "sku" : 1
+                },
+                "name" : "sku_1",
+                "ns" : "store.products"
+        },
+        {
+                "v" : 1,
+                "key" : {
+                        "price" : -1
+                },
+                "name" : "price_-1",
+                "ns" : "store.products"
+        },
+        {
+                "v" : 1,
+                "key" : {
+                        "description" : 1
+                },
+                "name" : "description_1",
+                "ns" : "store.products"
+        },
+        {
+                "v" : 1,
+                "key" : {
+                        "category" : 1,
+                        "brand" : 1
+                },
+                "name" : "category_1_brand_1",
+                "ns" : "store.products"
+        }
+]
+
+> db.products.ensureIndex( { 'reviews.author' : 1 } )
+{
+        "createdCollectionAutomatically" : false,
+        "numIndexesBefore" : 5,
+        "numIndexesAfter" : 6,
+        "ok" : 1
+}
+>
+
+> db.products.getIndexes()
+[
+        {
+                "v" : 1,
+                "key" : {
+                        "_id" : 1
+                },
+                "name" : "_id_",
+                "ns" : "store.products"
+        },
+        {
+                "v" : 1,
+                "unique" : true,
+                "key" : {
+                        "sku" : 1
+                },
+                "name" : "sku_1",
+                "ns" : "store.products"
+        },
+        {
+                "v" : 1,
+                "key" : {
+                        "price" : -1
+                },
+                "name" : "price_-1",
+                "ns" : "store.products"
+        },
+        {
+                "v" : 1,
+                "key" : {
+                        "description" : 1
+                },
+                "name" : "description_1",
+                "ns" : "store.products"
+        },
+        {
+                "v" : 1,
+                "key" : {
+                        "category" : 1,
+                        "brand" : 1
+                },
+                "name" : "category_1_brand_1",
+                "ns" : "store.products"
+        },
+        {
+                "v" : 1,
+                "key" : {
+                        "reviews.author" : 1
+                },
+                "name" : "reviews.author_1",
+                "ns" : "store.products"
+        }
+]
+>
+
