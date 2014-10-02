@@ -1,0 +1,7 @@
+> db.posts.ensureIndex({ 'date' : -1 })
+> db.posts.ensureIndex({ 'tags' : 1 })
+> db.getProfilingLevel()
+> db.getProfilingStatus()
+> db.setProfilingStatus(1,4) # Level 1, 4 ms
+> db.setProfilingLevel(0) # Level 1, 4 ms
+
