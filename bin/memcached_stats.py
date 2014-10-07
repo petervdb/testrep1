@@ -56,6 +56,7 @@ def main(argv=None):
     import pprint
     m = MemcachedStats(host, port)
     pprint.pprint(m.keys())
+    pprint.pprint(m.stats())
 
 if __name__ == '__main__':
     main()
