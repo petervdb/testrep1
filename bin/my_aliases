@@ -23,6 +23,7 @@ alias fuck='sudo $(history -p \!\!)'
 
 # Some aliases to start and stop services
 alias startmongodb='sudo systemctl start mongodb.service'
+alias sb_mongodb26='/home/petervdb/mongodb26/bin/mongod -dbpath /home/petervdb/mongodb26/data/db'
 alias stopmongodb='sudo systemctl stop mongodb.service'
 alias startmysql='sudo systemctl start mysql.service'
 alias stopmysql='sudo systemctl stop mysql.service'
