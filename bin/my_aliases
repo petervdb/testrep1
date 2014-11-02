@@ -31,3 +31,6 @@ alias startnginx='sudo systemctl start nginx.service'
 alias stopnginx='sudo systemctl stop nginx.service'
 alias startapache2='sudo systemctl start apache2.service'
 alias stopapache2='sudo systemctl stop apache2.service'
+
+# general shortcuts
+alias dualmon='xrandr --output VGA1 --left-of LVDS1'
