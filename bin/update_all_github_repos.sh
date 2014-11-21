@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 # I use this script to update all my GIT Repositories that are available on the running system
 #
 GIT_HOME=$HOME/GitHub
