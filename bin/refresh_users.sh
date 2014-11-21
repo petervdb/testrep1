@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 # I use this script to update the /etc/passwd and /etc/group file with Active Directory
 # This script is only for my Cygwin environment
 #
