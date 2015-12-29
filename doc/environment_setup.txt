@@ -1,4 +1,4 @@
-This documents describes the setup of my CygWin and Linux environement.
+This documents describes the setup of my CygWin and Linux environment.
 Before proceding you should create a Git clone of this repository.
 Create a GitHub directory "GitHub" in your home directory and create the clone in the GitHub directory.
 ---------------------------------------------------------------------------------------------------------
