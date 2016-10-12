@@ -23,7 +23,7 @@ eval $(/usr/bin/ssh-pageant -ra /tmp/.ssh-pageant)
 Create the following directories when on Linux
 /${HOME}/bin
 /${HOME}/TerminalLogs
-/${HOME}/TerminalLog/Terminal
+/${HOME}/TerminalLogs/Terminal
 ---------------------------------------------------------------------------------------------------------
 
 3. Create the following symlinks when running on Cygwin
