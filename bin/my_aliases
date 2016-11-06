@@ -4,6 +4,7 @@ alias l='ls -la'
 
 # aliases for my GIT repositiories
 alias testrep1='cd $HOME/GitHub/testrep1'
+alias gowww='cd /var/www/html'
 alias eLearning='cd $HOME/GitHub/eLearning'
 alias learnpython='cd $HOME/GitHub/eLearning/python'
 alias learnmongodb='cd $HOME/GitHub/eLearning/mongodb'
