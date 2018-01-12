@@ -20,6 +20,11 @@ if [ ! -d "$backup_dir" ]; then
   echo "done."
 fi
 echo "INFO - Creating full backup /srv folder."
-tar -czpf ${backup_dir}/srv_full_backup.tar.gz /srv
-
+tar --listed-incremental=${backup_dir}/srv_snapshot.snar --level=0 -czpf ${backup_dir}/srv_full_backup.tar.gz /srv
+# To prevent confusion we should delete created incremental backups
+echo -n "INFO - Remove created incremental backups ..."
+if [ -f "${backup_dir}/srv_incremental_backup.tar.gz" ]; then
+  rm "${backup_dir}/srv_incremental_backup.tar.gz"
+fi
+echo " done."
 echo "INFO - Backup created."
