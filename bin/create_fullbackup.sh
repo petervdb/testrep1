@@ -1,6 +1,8 @@
 #!/bin/bash
 # Full Backup script for Linux
 # Please check the settings first
+# Only a backup is made of some specific folders. 
+# Backup folders are: /home /etc /srv /var/lib
 #
 
 # Settings
