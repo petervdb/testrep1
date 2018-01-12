@@ -1,5 +1,5 @@
 #!/bin/bash
-# Backup script for Linux
+# Full Backup script for Linux
 # Please check the settings first
 #
 
@@ -19,6 +19,7 @@ if [ ! -d "$backup_dir" ]; then
   mkdir $backup_dir
   echo "done."
 fi
-echo "INFO - Creating backup /srv folder."
-tar -czpf ${backup_dir}/srv_backup.tar.gz /srv
+echo "INFO - Creating full backup /srv folder."
+tar -czpf ${backup_dir}/srv_full_backup.tar.gz /srv
 
+echo "INFO - Backup created."
