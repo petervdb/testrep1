@@ -25,6 +25,7 @@ BKUP_LOG=/backup/mysql/${SERVER}/mysql-backup.log
 BASE_BKUP_DIR="/backup/mysql/${SERVER}/dumps"
 # Backup rotation period.
 BACKUP_HISTORY="+30"
+CUR_DATE=`date +%Y%m%d_%H%M%S`
 
 # From here, only edit if you know what you are doing.
 index=0
@@ -39,7 +40,7 @@ mysql -e "FLUSH LOGS"
 # Loop through the DB list and create table level backup,
 # applying appropriate option for MyISAM and InnoDB tables.
 for DB in $DBS_LIST; do
-    DB_BKP_FLDR=$BASE_BKUP_DIR/$(date +%Y%m%d_%H%M%S)/$DB
+    DB_BKP_FLDR=$BASE_BKUP_DIR/$CUR_DATE/$DB
     [ ! -d $DB_BKP_FLDR ]  && mkdir -p $DB_BKP_FLDR
     # Get the schema of database with the stored procedures.
     # This will be the first file in the database backup folder
