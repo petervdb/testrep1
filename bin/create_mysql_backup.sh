@@ -3,9 +3,16 @@
 # Created By: Peter Vandenberghe
 # Created   : 20180119
 # Updated   : 20180119
+# Version   : 1.0.0
+#
+# This is still a backup backup scripts and needs some tuning
+# Todo: check if all folders exists
+# Test on specific storage engines
 #
 # Database credentials
 # The login and password needs to be stored in the .my.cnf file 
+# Your .my.cnf file also needs a mysqladmin and mysqldump section with user and password 
+# 
 
 # Settings
 SERVER=`hostname -s`
