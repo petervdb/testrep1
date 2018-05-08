@@ -19,6 +19,8 @@ alias startsshagent='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/id_rsa'
 alias pullrepo='git pull origin master'
 alias pushrepo='git push origin master'
 alias enablegitenv='. ~/bin/enable_git_env.sh'
+alias vmuxpvn02='ssh vmuxpvn02'
+alias prvagrant='cd $HOME/${USER}_projects/vagrant'
 
 # MySQL related
 alias mysqlprocesslist='mysql -e "show processlist"'
