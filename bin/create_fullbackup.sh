@@ -34,6 +34,9 @@ tar --listed-incremental=${backup_dir}/srv_snapshot.snar --level=0 -czpf ${backu
 # /var/lib folder
 echo "INFO - Creating full backup /var/lib folder."
 tar --listed-incremental=${backup_dir}/var_lib_snapshot.snar --level=0 -czpf ${backup_dir}/var_lib_full_backup.tar.gz /var/lib
+# /usr/lib/nagios/plugins
+echo "INFO - Creating full backup /usr/lib/nagios/plugins folder."
+tar --listed-incremental=${backup_dir}/nagios_plugins_snapshot.snar --level=0 -czpf ${backup_dir}/nagios_plugins_backup.tar.gz /usr/lib/nagios/plugins
 
 # To prevent confusion we should delete created incremental backups
 echo -n "INFO - Remove created incremental backups ..."
@@ -52,6 +55,10 @@ fi
 # /var/lib folder
 if [ -f "${backup_dir}/var_lib_incremental_backup.tar.gz" ]; then
   rm "${backup_dir}/var_lib_incremental_backup.tar.gz"
+fi
+# /usr/lib/nagios/plugins folder
+if [ -f "${backup_dir}/nagios_plugins_incremental_backup.tar.gz" ]; then
+  rm "${backup_dir}/nagios_plugins_incremental_backup.tar.gz"
 fi
 echo " done."
 echo "INFO - Backup created."
