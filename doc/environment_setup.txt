@@ -12,7 +12,7 @@ if [ -f "${HOME}/bin/my_aliases" ] ; then
 fi
 # ssh-pageant
 # Only required for Cygwin. Just leave it out when running on Linux
-eval $(/usr/bin/ssh-pageant -ra /tmp/.ssh-pageant)
+eval $(/usr/bin/ssh-pageant -ra /tmp/.ssh-pageant-$USERNAME)
 ---------------------------------------------------------------------------------------------------------
 
 2. Create the following directories when on Cygwin
